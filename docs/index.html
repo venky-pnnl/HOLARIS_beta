@@ -1,85 +1,226 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The five HOLARIS beta application installers for Windows.">
-<title>HOLARIS beta | Manuscript software archive</title>
-<style>
-  :root {
-    color-scheme: light;
-    --paper:#f8f7f2;
-    --ink:#142d31;
-    --muted:#406167;
-    --line:#d5ded8;
-    --pine:#123638;
-    --mint:#c9eecc;
-  }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 "Instrument Sans", "Segoe UI", system-ui, sans-serif; }
-  .wrap { width:min(960px, calc(100% - 56px)); margin-inline:auto; }
-  a { color:inherit; text-underline-offset:.22em; }
-  a:focus-visible { outline:3px solid #cb743a; outline-offset:4px; }
-  header { background:var(--pine); color:#f6fbf7; padding:24px 0 55px; }
-  nav { display:flex; justify-content:space-between; align-items:center; gap:20px; border-bottom:1px solid #67918b; padding-bottom:16px; }
-  nav a { font-size:.92rem; }
-  .project { font-weight:720; letter-spacing:.035em; }
-  .label { color:var(--mint); margin:36px 0 7px; font-size:.88rem; }
-  h1 { font:700 clamp(2.7rem, 8vw, 5.05rem)/1.08 Georgia, "Instrument Serif", serif; letter-spacing:-.055em; margin:0; }
-  .lead { max-width:570px; color:#dcebe5; font-size:1.08rem; margin:16px 0 0; }
-  main { margin:32px auto 0; }
-  .apps { margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }
-  .app { display:grid; grid-template-columns:minmax(0, 1fr) 90px minmax(115px, max-content); align-items:center; gap:16px; padding:15px 0; border-bottom:1px solid var(--line); }
-  h2 { font-weight:700; letter-spacing:-.02em; font-size:1.14rem; margin:0; }
-  .app p { color:var(--muted); font-size:.94rem; margin:3px 0 0; }
-  .app .installer { font-size:.82rem; overflow-wrap:anywhere; }
-  .version { justify-self:start; color:var(--muted); font:600 .88rem/1.4 "IBM Plex Mono", Consolas, monospace; background:#e8eee8; padding:4px 9px; border-radius:4px; }
-  .links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:7px; }
-  .download { display:inline-block; text-decoration:none; color:#164247; border:1px solid #93aca6; border-radius:5px; padding:5px 10px; font-size:.88rem; font-weight:700; white-space:nowrap; }
-  .download:hover { background:#e0eee5; }
-  .instructions { margin:30px 0 46px; font-size:.95rem; }
-  .instructions p { max-width:700px; margin:6px 0; color:var(--muted); }
-  .instructions h2 { font-size:1.05rem; }
-  code { color:var(--ink); }
-  @media (max-width:580px) {
-    .wrap { width:calc(100% - 32px); }
-    header { padding-bottom:34px; }
-    .label { margin-top:28px; }
-    .app { grid-template-columns:minmax(0, 1fr) auto; gap:8px; padding:12px 0; }
-    .version { justify-self:end; }
-    .links { grid-column:1 / -1; justify-content:flex-start; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Windows downloads for HOLARIS beta and the FaradaIQ instrument applications.">
+  <meta name="theme-color" content="#152e28">
+  <title>HOLARIS beta | Windows downloads</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fafbf8;
+      --surface: #edf1eb;
+      --ink: #182c26;
+      --muted: #485c55;
+      --border: #cdd8d0;
+      --green: #152e28;
+      --mint: #c9e8bd;
+      --focus: #2b715b;
+      --text: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+      --mono: "IBM Plex Mono", Consolas, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 var(--text); }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: .13em; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
+    code, .version { font-family: var(--mono); font-size: .87em; }
+    .wrap { width: min(70rem, calc(100% - 5rem)); margin-inline: auto; }
+
+    .masthead { background: var(--green); color: #f5faf6; }
+    .masthead a:focus-visible { outline-color: var(--mint); }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
+      min-height: 4.25rem; border-bottom: 1px solid #476159;
+    }
+    .wordmark { color: var(--mint); font-size: .83rem; font-weight: 700; letter-spacing: .16em; }
+    .nav { display: flex; flex-wrap: wrap; gap: .35rem 1.5rem; font-size: .9rem; }
+    .nav a { text-decoration: none; padding-block: .45rem; }
+    .nav a:hover { text-decoration: underline; }
+
+    .hero {
+      display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
+      align-items: end; gap: 2rem; padding-block: clamp(3.25rem, 7.4vw, 6.5rem) clamp(3.25rem, 6.3vw, 5.25rem);
+    }
+    .hero h1 { font-size: clamp(3rem, 7.8vw, 6.85rem); font-weight: 720; letter-spacing: -.075em; line-height: .99; }
+    .hero h1 span { color: var(--mint); font-weight: 520; }
+    .hero p { color: #dbe9e0; max-width: 32ch; font-size: clamp(1.01rem, 1.5vw, 1.2rem); line-height: 1.55; }
+
+    .downloads { padding-block: clamp(2.75rem, 5.2vw, 4.25rem) 0; }
+    .section-title {
+      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+      gap: .6rem 1.5rem; margin-bottom: 1.5rem;
+    }
+    h2 { font-size: clamp(1.45rem, 3.15vw, 2.05rem); line-height: 1.2; letter-spacing: -.035em; }
+    .release-links { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; font-size: .9rem; color: var(--muted); }
+
+    .app-grid { --columns: minmax(0, 1fr) 8rem minmax(8.8rem, max-content); }
+    .table-heading, .app { display: grid; grid-template-columns: var(--columns); gap: 1.4rem; align-items: center; }
+    .table-heading {
+      background: var(--surface); border-block: 1px solid var(--border); padding: .6rem .9rem;
+      color: var(--muted); font-size: .8rem; font-weight: 650;
+    }
+    .table-heading span:last-child { justify-self: end; }
+    .apps { margin: 0; padding: 0; list-style: none; }
+    .app { padding: 1.12rem .9rem; border-bottom: 1px solid var(--border); }
+    .app h3 { font-size: 1.06rem; letter-spacing: -.01em; line-height: 1.25; font-weight: 670; }
+    .app p { margin-top: .27rem; color: var(--muted); font-size: .9rem; line-height: 1.4; }
+    .version { color: var(--muted); }
+    .download {
+      display: inline-flex; gap: .7rem; align-items: center; justify-content: space-between; justify-self: end;
+      min-height: 2.7rem; padding: .4rem .77rem; border: 1px solid #879e92; border-radius: .3rem;
+      color: var(--green); font-size: .875rem; font-weight: 640; white-space: nowrap; text-decoration: none;
+    }
+    .download:hover { background: var(--green); color: white; border-color: var(--green); }
+    .download span { font-size: 1.1em; }
+
+    .install { padding-block: clamp(2.5rem, 4.8vw, 4rem); }
+    .install > p { margin-top: .7rem; max-width: 70ch; color: var(--muted); }
+    details { margin-top: 1rem; }
+    summary { width: fit-content; min-height: 2.25rem; cursor: pointer; color: var(--green); font-size: .93rem; font-weight: 650; }
+    summary:hover { text-decoration: underline; text-underline-offset: .22em; }
+    .setup-list { list-style: none; padding: 0; margin: .2rem 0 0; max-width: 62rem; }
+    .setup-list li {
+      display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1fr); gap: .45rem 1rem;
+      padding: .65rem 0; border-top: 1px solid var(--border); line-height: 1.4; font-size: .91rem;
+    }
+    .setup-list code { overflow-wrap: anywhere; align-self: center; }
+
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding-block: 2.15rem 2.5rem; }
+    footer h2 { font-size: 1.15rem; letter-spacing: -.02em; }
+    footer p { max-width: 76ch; color: var(--muted); margin-top: .45rem; font-size: .93rem; }
+    footer a { color: var(--green); }
+
+    @media (max-width: 48rem) {
+      .wrap { width: calc(100% - 2.5rem); }
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+      .hero p { max-width: 45ch; }
+      .app-grid { --columns: minmax(0, 1fr) 4.5rem minmax(7.25rem, max-content); }
+      .table-heading, .app { gap: .8rem; }
+    }
+    @media (max-width: 34rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .topbar { min-height: 3.65rem; gap: .6rem; }
+      .nav { gap: .15rem .8rem; font-size: .83rem; }
+      .hero { padding-block: 2.7rem 2.9rem; }
+      .section-title { margin-bottom: 1.15rem; }
+      .table-heading { display: none; }
+      .apps { border-top: 1px solid var(--border); }
+      .app { grid-template-columns: minmax(0, 1fr) auto; gap: .65rem .5rem; padding: .9rem 0; }
+      .version { grid-column: 2; grid-row: 1; align-self: start; }
+      .download { grid-column: 1 / -1; justify-self: start; }
+      .setup-list li { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <nav aria-label="Project links">
-      <span class="project">HOLARIS</span>
-      <a href="https://github.com/venky-pnnl/HOLARIS_beta">GitHub repository</a>
-    </nav>
-    <p class="label">Manuscript software archive</p>
-    <h1>HOLARIS beta</h1>
-    <p class="lead">Windows installers for the five applications in the HOLARIS manuscript beta archive.</p>
-  </div>
-</header>
-<main class="wrap">
-  <ul class="apps" aria-label="Windows installer downloads">
-    <li class="app"><div class="app-name"><h2>HOLARIS Command Center</h2><p>Workflow orchestration</p><p class="installer">Setup <code>Install.bat</code></p></div><span class="version">V269</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
-<li class="app"><div class="app-name"><h2>FaradaIQ mMZI</h2><p>Interferometric acquisition</p><p class="installer">Setup <code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></p></div><span class="version">v109</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
-<li class="app"><div class="app-name"><h2>FaradaIQ mMZI Motion Control</h2><p>Magnet and stage positioning</p><p class="installer">Setup <code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></p></div><span class="version">V053</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
-<li class="app"><div class="app-name"><h2>FaradaIQ HyperspectralCam</h2><p>Hyperspectral acquisition</p><p class="installer">Setup <code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></p></div><span class="version">v057</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
-<li class="app"><div class="app-name"><h2>FaradaIQ Spectra Forge</h2><p>Raman acquisition</p><p class="installer">Setup <code>Install.bat</code></p></div><span class="version">v139</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
-  </ul>
-  <section class="instructions" aria-labelledby="install-heading">
-    <h2 id="install-heading">Install on Windows</h2>
-    <p>Extract the complete ZIP to a short local path and run the setup BAT listed for the app. Configure the required instrument drivers and hardware settings for your PC.</p>
-    <p><a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt">SHA-256 checksums</a> · <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/tag/manuscript-beta">GitHub release</a></p>
-  </section>
-  <section class="instructions" aria-labelledby="acknowledgments-heading">
-    <h2 id="acknowledgments-heading">Acknowledgment</h2>
-    <p>We acknowledge support from the <a href="https://www.pnnl.gov/projects/nets">Non-Equilibrium Transport Driven Separations (NETS) Initiative</a> at Pacific Northwest National Laboratory (PNNL).</p>
-  </section>
-</main>
+  <header class="masthead">
+    <div class="wrap topbar">
+      <span class="wordmark">HOLARIS</span>
+      <nav class="nav" aria-label="Project">
+        <a href="#downloads">Downloads</a>
+        <a href="#install">Installation</a>
+        <a href="https://github.com/venky-pnnl/HOLARIS_beta">GitHub</a>
+      </nav>
+    </div>
+    <div class="wrap hero">
+      <h1>HOLARIS <span>beta</span></h1>
+      <p>Software for coordinating instrument workflows and acquiring interferometric, hyperspectral, and Raman data.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="downloads" id="downloads" aria-labelledby="downloads-heading">
+      <div class="section-title">
+        <h2 id="downloads-heading">Windows downloads</h2>
+        <div class="release-links">
+          <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt">SHA-256 checksums</a>
+          <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/tag/manuscript-beta">Release details</a>
+        </div>
+      </div>
+      <div class="app-grid">
+        <div class="table-heading" aria-hidden="true">
+          <span>Application</span><span>Version</span><span>Installer</span>
+        </div>
+        <ul class="apps" aria-label="Windows installers">
+        <li class="app">
+          <div>
+            <h3>HOLARIS Command Center</h3>
+            <p>Workflow orchestration</p>
+          </div>
+          <span class="version">V269</span>
+          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip" aria-label="Download HOLARIS Command Center V269 for Windows">
+            Download ZIP <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+        <li class="app">
+          <div>
+            <h3>FaradaIQ mMZI</h3>
+            <p>Interferometric acquisition</p>
+          </div>
+          <span class="version">v109</span>
+          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip" aria-label="Download FaradaIQ mMZI v109 for Windows">
+            Download ZIP <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+        <li class="app">
+          <div>
+            <h3>FaradaIQ mMZI Motion Control</h3>
+            <p>Magnet and stage positioning</p>
+          </div>
+          <span class="version">V053</span>
+          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip" aria-label="Download FaradaIQ mMZI Motion Control V053 for Windows">
+            Download ZIP <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+        <li class="app">
+          <div>
+            <h3>FaradaIQ HyperspectralCam</h3>
+            <p>Hyperspectral acquisition</p>
+          </div>
+          <span class="version">v057</span>
+          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip" aria-label="Download FaradaIQ HyperspectralCam v057 for Windows">
+            Download ZIP <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+        <li class="app">
+          <div>
+            <h3>FaradaIQ Spectra Forge</h3>
+            <p>Raman acquisition</p>
+          </div>
+          <span class="version">v139</span>
+          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip" aria-label="Download FaradaIQ Spectra Forge v139 for Windows">
+            Download ZIP <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="install" id="install" aria-labelledby="install-heading">
+      <h2 id="install-heading">Install on Windows</h2>
+      <p>Extract the full ZIP to a local folder and run the setup file listed below. Configure any required instrument drivers and hardware settings for your PC.</p>
+      <details>
+        <summary>Setup files by application</summary>
+        <ul class="setup-list">
+            <li><strong>HOLARIS Command Center</strong><code>Install.bat</code></li>
+            <li><strong>FaradaIQ mMZI</strong><code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></li>
+            <li><strong>FaradaIQ mMZI Motion Control</strong><code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></li>
+            <li><strong>FaradaIQ HyperspectralCam</strong><code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></li>
+            <li><strong>FaradaIQ Spectra Forge</strong><code>Install.bat</code></li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer aria-labelledby="acknowledgments-heading">
+    <div class="wrap">
+      <h2 id="acknowledgments-heading">Acknowledgment</h2>
+      <p>We acknowledge support from the <a href="https://www.pnnl.gov/projects/nets">Non-Equilibrium Transport Driven Separations (NETS) Initiative</a> at Pacific Northwest National Laboratory (PNNL).</p>
+    </div>
+  </footer>
 </body>
 </html>
