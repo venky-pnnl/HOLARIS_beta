@@ -3,223 +3,313 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Windows downloads for HOLARIS beta and the FaradaIQ instrument applications.">
-  <meta name="theme-color" content="#152e28">
-  <title>HOLARIS beta | Windows downloads</title>
+  <meta name="description" content="HOLARIS beta coordinates instrument workflows, stage motion, interferometric imaging, hyperspectral scans, and Raman spectroscopy. Explore the S000038 dataset and download the Windows apps.">
+  <meta name="theme-color" content="#ffffff">
+  <title>HOLARIS beta | Multimodal experiment software</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #fafbf8;
-      --surface: #edf1eb;
-      --ink: #182c26;
-      --muted: #485c55;
-      --border: #cdd8d0;
-      --green: #152e28;
-      --mint: #c9e8bd;
-      --focus: #2b715b;
-      --text: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+      --ink: #1d1d1f;
+      --sub: #505057;
+      --line: #d9dbe2;
+      --soft: #f5f5f7;
+      --blue: #005ebd;
+      --action: #006ed8;
+      --blue-hover: #005fbe;
+      --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
       --mono: "IBM Plex Mono", Consolas, monospace;
     }
-
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.55 var(--text); }
-    h1, h2, h3, p { margin: 0; }
-    a { color: inherit; text-underline-offset: .22em; }
-    a:hover { text-decoration-thickness: .13em; }
-    a:focus-visible, summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 2px; }
-    code, .version { font-family: var(--mono); font-size: .87em; }
+    html { scroll-padding-top: 5.5rem; }
+    body { margin: 0; color: var(--ink); background: white; font: 1rem/1.52 var(--font); }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+    a { color: var(--blue); text-underline-offset: .18em; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 3px; }
     .wrap { width: min(70rem, calc(100% - 5rem)); margin-inline: auto; }
+    .skip { position: absolute; z-index: 10; top: .5rem; left: .5rem; background: white; padding: .5rem 1rem; transform: translateY(-150%); }
+    .skip:focus { transform: translateY(0); }
+    code { font-family: var(--mono); font-size: .85em; overflow-wrap: anywhere; }
 
-    .masthead { background: var(--green); color: #f5faf6; }
-    .masthead a:focus-visible { outline-color: var(--mint); }
-    .topbar {
-      display: flex; align-items: center; justify-content: space-between; gap: 1.25rem;
-      min-height: 4.25rem; border-bottom: 1px solid #476159;
-    }
-    .wordmark { color: var(--mint); font-size: .83rem; font-weight: 700; letter-spacing: .16em; }
-    .nav { display: flex; flex-wrap: wrap; gap: .35rem 1.5rem; font-size: .9rem; }
-    .nav a { text-decoration: none; padding-block: .45rem; }
-    .nav a:hover { text-decoration: underline; }
+    .site-header { position: sticky; top: 0; z-index: 2; border-bottom: 1px solid var(--line); background: rgb(255 255 255 / 96%); }
+    .header-bar { min-height: 3.6rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { color: var(--ink); font-weight: 710; font-size: 1.05rem; letter-spacing: -.035em; text-decoration: none; white-space: nowrap; }
+    .brand span { color: var(--sub); font-size: .86em; font-weight: 600; }
+    nav { display: flex; align-items: center; gap: clamp(.9rem, 2.5vw, 2rem); font-size: .9rem; }
+    nav a { color: var(--ink); text-decoration: none; }
+    nav a:hover { color: var(--blue); }
+    nav a:last-child { color: var(--blue); font-weight: 650; }
 
-    .hero {
-      display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr);
-      align-items: end; gap: 2rem; padding-block: clamp(3.25rem, 7.4vw, 6.5rem) clamp(3.25rem, 6.3vw, 5.25rem);
-    }
-    .hero h1 { font-size: clamp(3rem, 7.8vw, 6.85rem); font-weight: 720; letter-spacing: -.075em; line-height: .99; }
-    .hero h1 span { color: var(--mint); font-weight: 520; }
-    .hero p { color: #dbe9e0; max-width: 32ch; font-size: clamp(1.01rem, 1.5vw, 1.2rem); line-height: 1.55; }
+    .hero { padding-block: clamp(3rem, 6vw, 6rem) clamp(3.5rem, 6vw, 5.5rem); text-align: center; }
+    .hero h1 { font-size: clamp(3.25rem, 8.1vw, 7.2rem); letter-spacing: -.083em; line-height: .98; font-weight: 745; }
+    .hero h1 span { color: var(--blue); font-weight: 570; }
+    .hero .intro { margin: 1.16rem auto 0; max-width: 29ch; font-size: clamp(1.35rem, 3.05vw, 2.2rem); line-height: 1.18; letter-spacing: -.035em; font-weight: 615; text-wrap: balance; }
+    .hero .body { margin: 1rem auto 0; max-width: 59ch; color: var(--sub); font-size: clamp(1rem, 1.6vw, 1.17rem); }
+    .hero-actions, .dataset-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.35rem; }
+    .hero-actions { justify-content: center; margin: 1.6rem 0 2.6rem; }
+    .button { display: inline-flex; align-items: center; min-height: 2.8rem; padding: .6rem 1.15rem; border-radius: 999px; background: var(--action); color: white; text-decoration: none; font-size: .94rem; font-weight: 640; }
+    .button:hover { background: var(--blue-hover); }
+    .text-link { font-weight: 625; text-decoration: none; }
+    .text-link:hover { text-decoration: underline; }
 
-    .downloads { padding-block: clamp(2.75rem, 5.2vw, 4.25rem) 0; }
-    .section-title {
-      display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
-      gap: .6rem 1.5rem; margin-bottom: 1.5rem;
+    .workflow-map { position: relative; overflow: hidden; padding: 2.35rem clamp(1rem, 4.5vw, 3.6rem) 2.15rem; border: 1px solid #e0e6f1; border-radius: 2rem; background: radial-gradient(ellipse at 50% 1%, #edf3ff 5%, #f6f9ff 62%, #f5f5f7 100%); }
+    .map-hub, .map-node {
+      position: relative; display: flex; align-items: center; color: #1a2b42; text-decoration: none; font-weight: 645;
     }
-    h2 { font-size: clamp(1.45rem, 3.15vw, 2.05rem); line-height: 1.2; letter-spacing: -.035em; }
-    .release-links { display: flex; flex-wrap: wrap; gap: .45rem 1.25rem; font-size: .9rem; color: var(--muted); }
+    .map-hub:hover, .map-node:hover { color: var(--blue); }
+    .map-hub { justify-content: center; gap: 1rem; width: fit-content; max-width: 100%; margin: 0 auto; padding: .75rem 1.25rem .75rem .78rem; border: 1px solid #dbe5f6; border-radius: 1.1rem; background: white; box-shadow: 0 8px 24px rgb(41 74 124 / 7%); }
+    .map-hub > span:last-child { text-align: left; }
+    .map-hub b { display: block; font-weight: 700; }
+    .map-hub small { display: block; color: var(--sub); font-weight: 500; font-size: .8rem; }
+    .app-icon { display: inline-block; flex: 0 0 auto; width: 3.15rem; height: 3.15rem; background: center / contain no-repeat var(--icon); }
+    .icon-command { --icon: url("data:image/webp;base64,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"); }
+    .icon-hyperspectral { --icon: url("data:image/webp;base64,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"); }
+    .icon-interferometry { --icon: url("data:image/webp;base64,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"); }
+    .icon-motion { --icon: url("data:image/webp;base64,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"); }
+    .icon-raman { --icon: url("data:image/webp;base64,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"); }
+    .map-branches { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: .65rem; max-width: 55rem; padding-top: 2.3rem; margin: 0 auto; }
+    .map-branches::before { content: ""; position: absolute; width: 1px; left: 50%; top: 0; height: 1.1rem; background: #aebfd9; }
+    .map-branches::after { content: ""; position:absolute; top: 1.1rem; left: 12.3%; right: 12.3%; border-top: 1px solid #aebfd9; }
+    .map-node { flex-direction: column; justify-content: start; gap: .45rem; font-size: .89rem; line-height: 1.2; }
+    .map-node::before { content:""; position:absolute; top:-1.2rem; left:50%; height:1.2rem; border-left:1px solid #aebfd9; }
+    .map-node .app-icon { width: 3.9rem; height: 3.9rem; }
 
-    .app-grid { --columns: minmax(0, 1fr) 8rem minmax(8.8rem, max-content); }
-    .table-heading, .app { display: grid; grid-template-columns: var(--columns); gap: 1.4rem; align-items: center; }
-    .table-heading {
-      background: var(--surface); border-block: 1px solid var(--border); padding: .6rem .9rem;
-      color: var(--muted); font-size: .8rem; font-weight: 650;
-    }
-    .table-heading span:last-child { justify-self: end; }
-    .apps { margin: 0; padding: 0; list-style: none; }
-    .app { padding: 1.12rem .9rem; border-bottom: 1px solid var(--border); }
-    .app h3 { font-size: 1.06rem; letter-spacing: -.01em; line-height: 1.25; font-weight: 670; }
-    .app p { margin-top: .27rem; color: var(--muted); font-size: .9rem; line-height: 1.4; }
-    .version { color: var(--muted); }
-    .download {
-      display: inline-flex; gap: .7rem; align-items: center; justify-content: space-between; justify-self: end;
-      min-height: 2.7rem; padding: .4rem .77rem; border: 1px solid #879e92; border-radius: .3rem;
-      color: var(--green); font-size: .875rem; font-weight: 640; white-space: nowrap; text-decoration: none;
-    }
-    .download:hover { background: var(--green); color: white; border-color: var(--green); }
-    .download span { font-size: 1.1em; }
+    .section { padding-block: clamp(3.6rem, 7.4vw, 6.85rem); }
+    .why { padding-top: 0; }
+    .section h2 { font-size: clamp(2.15rem, 4.6vw, 3.7rem); letter-spacing: -.065em; line-height: 1.04; font-weight: 720; }
+    .section-lead { max-width: 63ch; margin-top: .95rem; color: var(--sub); font-size: clamp(1.05rem, 1.65vw, 1.2rem); }
+    .benefits { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+    .benefit { border-radius: 1.4rem; background: var(--soft); padding: clamp(1.3rem, 3vw, 2.1rem); }
+    .benefit h3, .dataset-guide h3 { font-size: clamp(1.15rem, 2.2vw, 1.48rem); letter-spacing: -.032em; line-height: 1.2; }
+    .benefit p { color: var(--sub); margin-top: .55rem; max-width: 49ch; }
 
-    .install { padding-block: clamp(2.5rem, 4.8vw, 4rem); }
-    .install > p { margin-top: .7rem; max-width: 70ch; color: var(--muted); }
-    details { margin-top: 1rem; }
-    summary { width: fit-content; min-height: 2.25rem; cursor: pointer; color: var(--green); font-size: .93rem; font-weight: 650; }
-    summary:hover { text-decoration: underline; text-underline-offset: .22em; }
-    .setup-list { list-style: none; padding: 0; margin: .2rem 0 0; max-width: 62rem; }
-    .setup-list li {
-      display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1fr); gap: .45rem 1rem;
-      padding: .65rem 0; border-top: 1px solid var(--border); line-height: 1.4; font-size: .91rem;
-    }
-    .setup-list code { overflow-wrap: anywhere; align-self: center; }
+    .dataset { background: #f3f6fc; }
+    .dataset-top { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(13rem, .7fr); align-items: end; gap: 1rem 2.8rem; }
+    .dataset .section-lead { max-width: 53ch; }
+    .dataset-meta { margin: 0; padding: 0 0 .15rem; display: grid; gap: .6rem; }
+    .dataset-meta > div { display: grid; grid-template-columns: 5.7rem minmax(0, 1fr); gap: .5rem; border-top: 1px solid #d5dce9; padding-top: .57rem; }
+    .dataset-meta dt { color: var(--sub); font-size: .87rem; }
+    .dataset-meta dd { margin: 0; font-weight: 620; font-size: .91rem; min-width: 0; overflow-wrap: anywhere; }
+    .dataset-actions { margin-top: 1.5rem; }
+    .dataset-guide { margin-top: 2.9rem; }
+    .dataset-guide > p { color: var(--sub); margin: .6rem 0 1.15rem; max-width: 75ch; }
 
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding-block: 2.15rem 2.5rem; }
-    footer h2 { font-size: 1.15rem; letter-spacing: -.02em; }
-    footer p { max-width: 76ch; color: var(--muted); margin-top: .45rem; font-size: .93rem; }
-    footer a { color: var(--green); }
+    .dataset-table { width: 100%; border-spacing: 0; font-size: .95rem; text-align: left; }
+    .dataset-table th, .dataset-table td { padding: .85rem .95rem; vertical-align: top; border-top: 1px solid #d5dce9; }
+    .dataset-table thead th { color: var(--sub); font-weight: 660; font-size: .83rem; }
+    .dataset-table tbody th { width: 20%; font-weight: 660; }
+    .dataset-table tbody th + td { width: 41%; }
+    .dataset-table tbody tr:last-child > * { border-bottom: 1px solid #d5dce9; }
 
-    @media (max-width: 48rem) {
-      .wrap { width: calc(100% - 2.5rem); }
-      .hero { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
-      .hero p { max-width: 45ch; }
-      .app-grid { --columns: minmax(0, 1fr) 4.5rem minmax(7.25rem, max-content); }
-      .table-heading, .app { gap: .8rem; }
+    .downloads .section-lead { max-width: 70ch; }
+    .app-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin-top: 2.1rem; }
+    .app-card { display: flex; flex-direction: column; grid-column: span 2; align-items: start; min-width: 0; padding: clamp(1.3rem, 2.5vw, 1.95rem); border-radius: 1.45rem; background: var(--soft); }
+    .app-card:nth-child(-n+2) { grid-column: span 3; }
+    .app-top { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .9rem; }
+    .version { font: 500 .84rem var(--mono); color: var(--sub); }
+    .app-card h3 { font-size: clamp(1.24rem, 2.25vw, 1.63rem); letter-spacing: -.035em; line-height: 1.14; }
+    .app-area { margin-top: .32rem; font-size: .9rem; font-weight: 625; color: var(--sub); }
+    .app-description { margin: .7rem 0 1.05rem; color: var(--sub); font-size: .95rem; }
+    .setup { margin-top: auto; margin-bottom: 1rem; width: 100%; color: var(--sub); font-size: .85rem; }
+    .setup summary { width: fit-content; cursor: pointer; font-weight: 610; }
+    .setup[open] summary { margin-bottom: .42rem; }
+    .setup code { display: block; border-left: 2px solid var(--line); padding-left: .55rem; }
+    .app-download { display: inline-flex; gap: .55rem; align-items: center; color: var(--blue); font-weight: 650; text-decoration: none; }
+    .app-download:hover { text-decoration: underline; }
+    .install-help { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .65rem 1rem; border-top: 1px solid var(--line); margin-top: 1.7rem; padding-top: 1rem; }
+    .install-help p { color: var(--sub); font-size: .9rem; max-width: 68ch; }
+    .install-help > a { font-size: .9rem; }
+
+    footer { background: var(--soft); border-top: 1px solid var(--line); padding-block: 2rem; }
+    .foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .75rem 1.6rem; align-items: end; }
+    .foot h2 { font-size: .93rem; font-weight: 690; }
+    .foot p { color: var(--sub); font-size: .86rem; margin-top: .4rem; max-width: 74ch; }
+    .foot > a { font-size: .86rem; }
+
+    @media (max-width: 58rem) {
+      .wrap { width: calc(100% - 3rem); }
+      .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .app-card, .app-card:nth-child(-n+2) { grid-column: span 1; }
+      .dataset-top { grid-template-columns: minmax(0, 1fr); }
+      .dataset-meta { max-width: 32rem; margin-top: .25rem; }
     }
-    @media (max-width: 34rem) {
+    @media (max-width: 41rem) {
       .wrap { width: calc(100% - 2rem); }
-      .topbar { min-height: 3.65rem; gap: .6rem; }
-      .nav { gap: .15rem .8rem; font-size: .83rem; }
-      .hero { padding-block: 2.7rem 2.9rem; }
-      .section-title { margin-bottom: 1.15rem; }
-      .table-heading { display: none; }
-      .apps { border-top: 1px solid var(--border); }
-      .app { grid-template-columns: minmax(0, 1fr) auto; gap: .65rem .5rem; padding: .9rem 0; }
-      .version { grid-column: 2; grid-row: 1; align-self: start; }
-      .download { grid-column: 1 / -1; justify-self: start; }
-      .setup-list li { grid-template-columns: minmax(0, 1fr); }
+      .header-bar { min-height: 3.35rem; }
+      nav { font-size: .82rem; gap: .9rem; }
+      nav a:first-child { display: none; }
+      .hero-actions { margin-bottom: 2rem; }
+      .workflow-map { border-radius: 1.3rem; padding-block: 1.35rem; }
+      .map-branches { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem .6rem; padding-top: 1.25rem; }
+      .map-branches::before, .map-branches::after, .map-node::before { display: none; }
+      .map-node .app-icon { width: 3.25rem; height: 3.25rem; }
+      .benefits, .app-grid { grid-template-columns: minmax(0, 1fr); }
+      .dataset-table th, .dataset-table td { padding: .65rem .4rem; font-size: .83rem; line-height: 1.35; overflow-wrap: anywhere; }
+      .dataset-table thead th { font-size: .73rem; }
+      .dataset-table tbody th { width: 25%; }
+      .dataset-table tbody th + td { width: 39%; }
+      .foot { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 </head>
-<body>
-  <header class="masthead">
-    <div class="wrap topbar">
-      <span class="wordmark">HOLARIS</span>
-      <nav class="nav" aria-label="Project">
+<body id="top">
+  <a class="skip" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="#top">HOLARIS <span>beta</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a>
+        <a href="#dataset">Dataset</a>
         <a href="#downloads">Downloads</a>
-        <a href="#install">Installation</a>
-        <a href="https://github.com/venky-pnnl/HOLARIS_beta">GitHub</a>
       </nav>
     </div>
-    <div class="wrap hero">
-      <h1>HOLARIS <span>beta</span></h1>
-      <p>Software for coordinating instrument workflows and acquiring interferometric, hyperspectral, and Raman data.</p>
-    </div>
   </header>
-
-  <main class="wrap">
-    <section class="downloads" id="downloads" aria-labelledby="downloads-heading">
-      <div class="section-title">
-        <h2 id="downloads-heading">Windows downloads</h2>
-        <div class="release-links">
-          <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt">SHA-256 checksums</a>
-          <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/tag/manuscript-beta">Release details</a>
-        </div>
+  <main id="main-content">
+    <section class="hero wrap" aria-labelledby="page-title">
+      <h1 id="page-title">HOLARIS <span>beta</span></h1>
+      <p class="intro">Multimodal experiments in one workspace.</p>
+      <p class="body">Plan the workflow, control stage motion, and collect interferometric, hyperspectral, and Raman measurements in a common experiment session.</p>
+      <div class="hero-actions">
+        <a class="button" href="#downloads">Download for Windows</a>
+        <a class="text-link" href="#dataset">Explore the dataset <span aria-hidden="true">›</span></a>
       </div>
-      <div class="app-grid">
-        <div class="table-heading" aria-hidden="true">
-          <span>Application</span><span>Version</span><span>Installer</span>
+      <figure class="workflow-map" aria-label="Command Center coordinates the four instrument applications">
+        <a class="map-hub" href="#app-command">
+          <span class="app-icon icon-command" aria-hidden="true"></span><span><b>HOLARIS Command Center</b><small>Coordinates the experiment</small></span>
+        </a>
+        <div class="map-branches">
+        <a href="#app-motion" class="map-node"><span class="app-icon icon-motion" aria-hidden="true"></span><span>Motion Control</span></a>
+        <a href="#app-interferometry" class="map-node"><span class="app-icon icon-interferometry" aria-hidden="true"></span><span>mMZI</span></a>
+        <a href="#app-hyperspectral" class="map-node"><span class="app-icon icon-hyperspectral" aria-hidden="true"></span><span>HyperspectralCam</span></a>
+        <a href="#app-raman" class="map-node"><span class="app-icon icon-raman" aria-hidden="true"></span><span>Spectra Forge</span></a>
         </div>
-        <ul class="apps" aria-label="Windows installers">
-        <li class="app">
-          <div>
-            <h3>HOLARIS Command Center</h3>
-            <p>Workflow orchestration</p>
-          </div>
-          <span class="version">V269</span>
-          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip" aria-label="Download HOLARIS Command Center V269 for Windows">
-            Download ZIP <span aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li class="app">
-          <div>
-            <h3>FaradaIQ mMZI</h3>
-            <p>Interferometric acquisition</p>
-          </div>
-          <span class="version">v109</span>
-          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip" aria-label="Download FaradaIQ mMZI v109 for Windows">
-            Download ZIP <span aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li class="app">
-          <div>
-            <h3>FaradaIQ mMZI Motion Control</h3>
-            <p>Magnet and stage positioning</p>
-          </div>
-          <span class="version">V053</span>
-          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip" aria-label="Download FaradaIQ mMZI Motion Control V053 for Windows">
-            Download ZIP <span aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li class="app">
-          <div>
-            <h3>FaradaIQ HyperspectralCam</h3>
-            <p>Hyperspectral acquisition</p>
-          </div>
-          <span class="version">v057</span>
-          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip" aria-label="Download FaradaIQ HyperspectralCam v057 for Windows">
-            Download ZIP <span aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li class="app">
-          <div>
-            <h3>FaradaIQ Spectra Forge</h3>
-            <p>Raman acquisition</p>
-          </div>
-          <span class="version">v139</span>
-          <a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip" aria-label="Download FaradaIQ Spectra Forge v139 for Windows">
-            Download ZIP <span aria-hidden="true">↓</span>
-          </a>
-        </li>
-        </ul>
+      </figure>
+    </section>
+
+    <section class="section why wrap" id="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title">Compare measurements from the same experiment.</h2>
+      <p class="section-lead">HOLARIS pairs instrument data with workflow events and stage readbacks. You can trace when a measurement was made, what the instruments were doing, and which condition the measurement belongs to.</p>
+      <div class="benefits">
+        <article class="benefit">
+          <h3>Set the experimental conditions</h3>
+          <p>Define the order of motion and acquisition steps, record operator checkpoints, and use actual position readings to track when a stage reached its target.</p>
+        </article>
+        <article class="benefit">
+          <h3>Compare the sample response</h3>
+          <p>Use phase images to follow spatial change, hyperspectral scans to locate wavelength-dependent features, and Raman spectra to examine vibrational bands.</p>
+        </article>
       </div>
     </section>
 
-    <section class="install" id="install" aria-labelledby="install-heading">
-      <h2 id="install-heading">Install on Windows</h2>
-      <p>Extract the full ZIP to a local folder and run the setup file listed below. Configure any required instrument drivers and hardware settings for your PC.</p>
-      <details>
-        <summary>Setup files by application</summary>
-        <ul class="setup-list">
-            <li><strong>HOLARIS Command Center</strong><code>Install.bat</code></li>
-            <li><strong>FaradaIQ mMZI</strong><code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></li>
-            <li><strong>FaradaIQ mMZI Motion Control</strong><code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></li>
-            <li><strong>FaradaIQ HyperspectralCam</strong><code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></li>
-            <li><strong>FaradaIQ Spectra Forge</strong><code>Install.bat</code></li>
-        </ul>
-      </details>
+    <section class="section dataset" id="dataset" aria-labelledby="dataset-title">
+      <div class="wrap">
+        <div class="dataset-top">
+          <div>
+            <h2 id="dataset-title">A HOLARIS experiment on Zenodo.</h2>
+            <p class="section-lead">Session S000038 followed three magnet approach–retraction cycles in nominally 1 M aqueous dysprosium nitrate, Dy(NO<sub>3</sub>)<sub>3</sub>. It includes native instrument data, acquisition metadata, workflow records, file manifests, and checksums.</p>
+          </div>
+          <dl class="dataset-meta">
+            <div><dt>Session</dt><dd>S000038</dd></div>
+            <div><dt>Stimulus</dt><dd>Magnet approach and retraction</dd></div>
+            <div><dt>DOI</dt><dd><a href="https://doi.org/10.5281/zenodo.24433153">10.5281/zenodo.24433153</a></dd></div>
+          </dl>
+        </div>
+        <div class="dataset-actions"><a class="button" href="https://zenodo.org/records/24433153">View dataset on Zenodo</a></div>
+        <div class="dataset-guide">
+          <h3 id="connections-title">How the apps connect to the data</h3>
+          <p>Start with the workflow records to find the relevant steps. Align the interferometer’s camera timestamps with the magnet-stage encoder readbacks to see how the optical response relates to measured motion. Raman spectra and hyperspectral scans add complementary spectral information.</p>
+          <table class="dataset-table" aria-labelledby="connections-title">
+            <thead><tr><th scope="col">Application</th><th scope="col">Dataset records</th><th scope="col">What you can examine</th></tr></thead>
+            <tbody>
+            <tr>
+              <th scope="row"><a href="#app-command">Command Center</a></th>
+              <td>Workflow steps, event timestamps, and acquisition metadata</td>
+              <td>Identify which measurements belong to each step and reconstruct the sequence.</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#app-motion">Motion Control</a></th>
+              <td>Magnet-stage encoder readbacks</td>
+              <td>Locate when the stage moved, reached position, and retracted.</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#app-interferometry">mMZI</a></th>
+              <td>Native interferogram stacks, reference frames, wrapped phase maps, and camera timestamps</td>
+              <td>Align the phase response to the measured magnet motion.</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#app-raman">Spectra Forge</a></th>
+              <td>Raman kinetic-series spectra before approach, at the cuvette, and after retraction</td>
+              <td>Compare vibrational bands across the three magnet positions.</td>
+            </tr>
+            <tr>
+              <th scope="row"><a href="#app-hyperspectral">HyperspectralCam</a></th>
+              <td>White-light transmission scans and He–Cd-excited Dy³⁺ emission scans</td>
+              <td>Examine spatial variation in transmission and in dysprosium emission.</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section downloads wrap" id="downloads" aria-labelledby="downloads-title">
+      <h2 id="downloads-title">Apps for Windows</h2>
+      <p class="section-lead">Start with Command Center to coordinate a workflow, or choose the app for the instrument you want to run.</p>
+      <div class="app-grid">
+        <article class="app-card" id="app-command" aria-labelledby="command-name">
+          <div class="app-top"><span class="app-icon icon-command" aria-hidden="true"></span><span class="version">V269</span></div>
+          <h3 id="command-name">HOLARIS Command Center</h3>
+          <p class="app-area">Experiment coordination</p>
+          <p class="app-description">Define the workflow sequence, coordinate supported steps across apps, and record when they run. The session record gives motion and acquisitions a common experimental context.</p>
+          <details class="setup"><summary>Setup file</summary><code>Install.bat</code></details>
+          <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip" aria-label="Download HOLARIS Command Center V269 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="app-card" id="app-interferometry" aria-labelledby="interferometry-name">
+          <div class="app-top"><span class="app-icon icon-interferometry" aria-hidden="true"></span><span class="version">v109</span></div>
+          <h3 id="interferometry-name">FaradaIQ mMZI</h3>
+          <p class="app-area">Interferometric imaging</p>
+          <p class="app-description">Capture off-axis Mach–Zehnder interferograms and reconstruct optical phase. Follow when and where phase changes develop as the experimental conditions change.</p>
+          <details class="setup"><summary>Setup file</summary><code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></details>
+          <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip" aria-label="Download FaradaIQ mMZI v109 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="app-card" id="app-motion" aria-labelledby="motion-name">
+          <div class="app-top"><span class="app-icon icon-motion" aria-hidden="true"></span><span class="version">V053</span></div>
+          <h3 id="motion-name">FaradaIQ mMZI Motion Control</h3>
+          <p class="app-area">Magnet and stage positioning</p>
+          <p class="app-description">Position supported stages and the magnet. Use approach and retraction moves to establish repeatable conditions, and use encoder readings to track the actual position.</p>
+          <details class="setup"><summary>Setup file</summary><code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></details>
+          <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip" aria-label="Download FaradaIQ mMZI Motion Control V053 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="app-card" id="app-hyperspectral" aria-labelledby="hyperspectral-name">
+          <div class="app-top"><span class="app-icon icon-hyperspectral" aria-hidden="true"></span><span class="version">v057</span></div>
+          <h3 id="hyperspectral-name">FaradaIQ HyperspectralCam</h3>
+          <p class="app-area">Hyperspectral imaging</p>
+          <p class="app-description">Acquire an image with spectral information at each pixel. Inspect where wavelength-dependent transmission or emission changes across the sample.</p>
+          <details class="setup"><summary>Setup file</summary><code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></details>
+          <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip" aria-label="Download FaradaIQ HyperspectralCam v057 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
+        </article>
+        <article class="app-card" id="app-raman" aria-labelledby="raman-name">
+          <div class="app-top"><span class="app-icon icon-raman" aria-hidden="true"></span><span class="version">v139</span></div>
+          <h3 id="raman-name">FaradaIQ Spectra Forge</h3>
+          <p class="app-area">Raman spectroscopy</p>
+          <p class="app-description">Acquire Raman spectra and repeated time series. Use the positions and intensities of vibrational bands to compare the sample response under different conditions.</p>
+          <details class="setup"><summary>Setup file</summary><code>Install.bat</code></details>
+          <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip" aria-label="Download FaradaIQ Spectra Forge v139 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
+        </article>
+      </div>
+      <div class="install-help">
+        <p>Extract the complete ZIP before running its setup BAT. Command Center V269 requires Python 3.12. Configure the drivers and hardware settings required by your instruments.</p>
+        <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt">SHA-256 checksums</a>
+      </div>
     </section>
   </main>
-
-  <footer aria-labelledby="acknowledgments-heading">
-    <div class="wrap">
-      <h2 id="acknowledgments-heading">Acknowledgment</h2>
-      <p>We acknowledge support from the <a href="https://www.pnnl.gov/projects/nets">Non-Equilibrium Transport Driven Separations (NETS) Initiative</a> at Pacific Northwest National Laboratory (PNNL).</p>
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <h2>Acknowledgment</h2>
+        <p>We acknowledge support from the <a href="https://www.pnnl.gov/projects/nets">Non-Equilibrium Transport Driven Separations (NETS) Initiative</a> at Pacific Northwest National Laboratory (PNNL).</p>
+      </div>
+      <a href="https://github.com/venky-pnnl/HOLARIS_beta">View on GitHub</a>
     </div>
   </footer>
 </body>
