@@ -14,13 +14,15 @@ HOLARIS beta is Windows software for multimodal laboratory experiments. It coord
 
 ## Windows apps and downloads
 
-| Application | Version | What it does | Installer | Setup BAT inside ZIP |
+The instrument connections below are documented for session S000038.
+
+| Application | Version | Instrument connection and role | Installer | Setup BAT inside ZIP |
 | --- | --- | --- | --- | --- |
-| **HOLARIS Command Center** | V269 | Define the workflow, coordinate supported steps across apps, and record when motion, acquisitions, and operator checkpoints occur. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip) | `Install.bat` |
-| **FaradaIQ mMZI** | v109 | Capture off-axis Mach–Zehnder interferograms and reconstruct optical phase to follow where and when the sample response changes. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip) | `FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat` |
-| **FaradaIQ mMZI Motion Control** | V053 | Position supported stages and the magnet, repeat approach and retraction moves, and record measured position through encoder readbacks. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip) | `FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat` |
-| **FaradaIQ HyperspectralCam** | v057 | Collect spectral information at each image pixel and map wavelength-dependent transmission or emission across the sample. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip) | `FaradaIQ_HyperspectralCam_v057/Install.bat` |
-| **FaradaIQ Spectra Forge** | v139 | Acquire Raman spectra and time series to compare vibrational bands under different sample or field conditions. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip) | `Install.bat` |
+| **HOLARIS Command Center** | V269 | **Coordinates the four instrument apps through the HOLARIS workflow interface. Each app communicates with its own instrument.**<br>Define the workflow, coordinate supported steps across apps, and record when motion, acquisitions, and operator checkpoints occur. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip) | `Install.bat` |
+| **FaradaIQ mMZI** | v109 | **Thorlabs CS895MU monochrome CMOS camera.**<br>Capture off-axis Mach–Zehnder interferograms and reconstruct optical phase to follow where and when the sample response changes. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip) | `FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat` |
+| **FaradaIQ mMZI Motion Control** | V053 | **Newport ESP300 and ESP302 motion controllers.**<br>Position supported stages and the magnet, repeat approach and retraction moves, and record measured position through encoder readbacks. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip) | `FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat` |
+| **FaradaIQ HyperspectralCam** | v057 | **Surface Optics Corporation SOC-710 hyperspectral scanner with a PixeLINK D752MU camera.**<br>Collect spectral information at each image pixel and map wavelength-dependent transmission or emission across the sample. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip) | `FaradaIQ_HyperspectralCam_v057/Install.bat` |
+| **FaradaIQ Spectra Forge** | v139 | **Andor Shamrock spectrograph with an Andor DU420_BEX2 CCD camera.**<br>Acquire Raman spectra and time series to compare vibrational bands under different sample or field conditions. | [Download ZIP](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip) | `Install.bat` |
 
 [SHA-256 checksums](https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt)
 

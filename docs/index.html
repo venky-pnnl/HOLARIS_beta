@@ -109,6 +109,9 @@
     .version { font: 500 .84rem var(--mono); color: var(--sub); }
     .app-card h3 { font-size: clamp(1.24rem, 2.25vw, 1.63rem); letter-spacing: -.035em; line-height: 1.14; }
     .app-area { margin-top: .32rem; font-size: .9rem; font-weight: 625; color: var(--sub); }
+    .app-hardware { margin: .85rem 0 0; color: var(--ink); font-size: .91rem; }
+    .app-hardware dt { color: var(--sub); font-size: .82rem; font-weight: 650; }
+    .app-hardware dd { margin: .18rem 0 0; }
     .app-description { margin: .7rem 0 1.05rem; color: var(--sub); font-size: .95rem; }
     .setup { margin-top: auto; margin-bottom: 1rem; width: 100%; color: var(--sub); font-size: .85rem; }
     .setup summary { width: fit-content; cursor: pointer; font-weight: 610; }
@@ -254,12 +257,13 @@
 
     <section class="section downloads wrap" id="downloads" aria-labelledby="downloads-title">
       <h2 id="downloads-title">Apps for Windows</h2>
-      <p class="section-lead">Start with Command Center to coordinate a workflow, or choose the app for the instrument you want to run.</p>
+      <p class="section-lead">Start with Command Center to coordinate a workflow, or choose the app for the instrument you want to run. The connections shown here reflect the <a href="#dataset">S000038 setup</a>.</p>
       <div class="app-grid">
         <article class="app-card" id="app-command" aria-labelledby="command-name">
           <div class="app-top"><span class="app-icon icon-command" aria-hidden="true"></span><span class="version">V269</span></div>
           <h3 id="command-name">HOLARIS Command Center</h3>
           <p class="app-area">Experiment coordination</p>
+          <dl class="app-hardware"><dt>Software connection</dt><dd>Coordinates the four instrument apps through the HOLARIS workflow interface. Each app communicates with its own instrument.</dd></dl>
           <p class="app-description">Define the workflow sequence, coordinate supported steps across apps, and record when they run. The session record gives motion and acquisitions a common experimental context.</p>
           <details class="setup"><summary>Setup file</summary><code>Install.bat</code></details>
           <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip" aria-label="Download HOLARIS Command Center V269 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
@@ -268,6 +272,7 @@
           <div class="app-top"><span class="app-icon icon-interferometry" aria-hidden="true"></span><span class="version">v109</span></div>
           <h3 id="interferometry-name">FaradaIQ mMZI</h3>
           <p class="app-area">Interferometric imaging</p>
+          <dl class="app-hardware"><dt>Instrument connection</dt><dd><strong>Thorlabs CS895MU</strong> monochrome CMOS camera.</dd></dl>
           <p class="app-description">Capture off-axis Mach–Zehnder interferograms and reconstruct optical phase. Follow when and where phase changes develop as the experimental conditions change.</p>
           <details class="setup"><summary>Setup file</summary><code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></details>
           <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip" aria-label="Download FaradaIQ mMZI v109 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
@@ -276,6 +281,7 @@
           <div class="app-top"><span class="app-icon icon-motion" aria-hidden="true"></span><span class="version">V053</span></div>
           <h3 id="motion-name">FaradaIQ mMZI Motion Control</h3>
           <p class="app-area">Magnet and stage positioning</p>
+          <dl class="app-hardware"><dt>Instrument connection</dt><dd><strong>Newport ESP300 and ESP302</strong> motion controllers.</dd></dl>
           <p class="app-description">Position supported stages and the magnet. Use approach and retraction moves to establish repeatable conditions, and use encoder readings to track the actual position.</p>
           <details class="setup"><summary>Setup file</summary><code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></details>
           <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip" aria-label="Download FaradaIQ mMZI Motion Control V053 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
@@ -284,6 +290,7 @@
           <div class="app-top"><span class="app-icon icon-hyperspectral" aria-hidden="true"></span><span class="version">v057</span></div>
           <h3 id="hyperspectral-name">FaradaIQ HyperspectralCam</h3>
           <p class="app-area">Hyperspectral imaging</p>
+          <dl class="app-hardware"><dt>Instrument connection</dt><dd><strong>Surface Optics Corporation SOC-710</strong> hyperspectral scanner with a PixeLINK D752MU camera.</dd></dl>
           <p class="app-description">Acquire an image with spectral information at each pixel. Inspect where wavelength-dependent transmission or emission changes across the sample.</p>
           <details class="setup"><summary>Setup file</summary><code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></details>
           <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip" aria-label="Download FaradaIQ HyperspectralCam v057 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
@@ -292,6 +299,7 @@
           <div class="app-top"><span class="app-icon icon-raman" aria-hidden="true"></span><span class="version">v139</span></div>
           <h3 id="raman-name">FaradaIQ Spectra Forge</h3>
           <p class="app-area">Raman spectroscopy</p>
+          <dl class="app-hardware"><dt>Instrument connection</dt><dd><strong>Andor Shamrock</strong> spectrograph with an Andor DU420_BEX2 CCD camera.</dd></dl>
           <p class="app-description">Acquire Raman spectra and repeated time series. Use the positions and intensities of vibrational bands to compare the sample response under different conditions.</p>
           <details class="setup"><summary>Setup file</summary><code>Install.bat</code></details>
           <a class="app-download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip" aria-label="Download FaradaIQ Spectra Forge v139 for Windows">Download ZIP <span aria-hidden="true">↓</span></a>
