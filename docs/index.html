@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The five HOLARIS beta application installers for Windows.">
+<title>HOLARIS beta | Manuscript software archive</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper:#f8f7f2;
+    --ink:#142d31;
+    --muted:#406167;
+    --line:#d5ded8;
+    --pine:#123638;
+    --mint:#c9eecc;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 "Instrument Sans", "Segoe UI", system-ui, sans-serif; }
+  .wrap { width:min(960px, calc(100% - 56px)); margin-inline:auto; }
+  a { color:inherit; text-underline-offset:.22em; }
+  a:focus-visible { outline:3px solid #cb743a; outline-offset:4px; }
+  header { background:var(--pine); color:#f6fbf7; padding:24px 0 55px; }
+  nav { display:flex; justify-content:space-between; align-items:center; gap:20px; border-bottom:1px solid #67918b; padding-bottom:16px; }
+  nav a { font-size:.92rem; }
+  .project { font-weight:720; letter-spacing:.035em; }
+  .label { color:var(--mint); margin:36px 0 7px; font-size:.88rem; }
+  h1 { font:700 clamp(2.7rem, 8vw, 5.05rem)/1.08 Georgia, "Instrument Serif", serif; letter-spacing:-.055em; margin:0; }
+  .lead { max-width:570px; color:#dcebe5; font-size:1.08rem; margin:16px 0 0; }
+  main { margin:32px auto 0; }
+  .apps { margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }
+  .app { display:grid; grid-template-columns:minmax(0, 1fr) 90px minmax(115px, max-content); align-items:center; gap:16px; padding:15px 0; border-bottom:1px solid var(--line); }
+  h2 { font-weight:700; letter-spacing:-.02em; font-size:1.14rem; margin:0; }
+  .app p { color:var(--muted); font-size:.94rem; margin:3px 0 0; }
+  .app .installer { font-size:.82rem; overflow-wrap:anywhere; }
+  .version { justify-self:start; color:var(--muted); font:600 .88rem/1.4 "IBM Plex Mono", Consolas, monospace; background:#e8eee8; padding:4px 9px; border-radius:4px; }
+  .links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:7px; }
+  .download { display:inline-block; text-decoration:none; color:#164247; border:1px solid #93aca6; border-radius:5px; padding:5px 10px; font-size:.88rem; font-weight:700; white-space:nowrap; }
+  .download:hover { background:#e0eee5; }
+  .instructions { margin:30px 0 46px; font-size:.95rem; }
+  .instructions p { max-width:700px; margin:6px 0; color:var(--muted); }
+  .instructions h2 { font-size:1.05rem; }
+  code { color:var(--ink); }
+  @media (max-width:580px) {
+    .wrap { width:calc(100% - 32px); }
+    header { padding-bottom:34px; }
+    .label { margin-top:28px; }
+    .app { grid-template-columns:minmax(0, 1fr) auto; gap:8px; padding:12px 0; }
+    .version { justify-self:end; }
+    .links { grid-column:1 / -1; justify-content:flex-start; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav aria-label="Project links">
+      <span class="project">HOLARIS</span>
+      <a href="https://github.com/venky-pnnl/HOLARIS_beta">GitHub repository</a>
+    </nav>
+    <p class="label">Manuscript software archive</p>
+    <h1>HOLARIS beta</h1>
+    <p class="lead">Windows installers for the five applications in the HOLARIS manuscript beta archive.</p>
+  </div>
+</header>
+<main class="wrap">
+  <ul class="apps" aria-label="Windows installer downloads">
+    <li class="app"><div class="app-name"><h2>HOLARIS Command Center</h2><p>Workflow orchestration</p><p class="installer">Setup <code>Install.bat</code></p></div><span class="version">V269</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/HOLARIS_Command_Center_V269_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
+<li class="app"><div class="app-name"><h2>FaradaIQ mMZI</h2><p>Interferometric acquisition</p><p class="installer">Setup <code>FaradaIQ_mMZI_v109/Install_FaradaIQ_mMZI_v109_Windows.bat</code></p></div><span class="version">v109</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_V109_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
+<li class="app"><div class="app-name"><h2>FaradaIQ mMZI Motion Control</h2><p>Magnet and stage positioning</p><p class="installer">Setup <code>FaradaIQ_mMZI_Motion_v053/Install_FaradaIQ_mMZI_Motion_v053.bat</code></p></div><span class="version">V053</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_mMZI_Motion_Control_V053_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
+<li class="app"><div class="app-name"><h2>FaradaIQ HyperspectralCam</h2><p>Hyperspectral acquisition</p><p class="installer">Setup <code>FaradaIQ_HyperspectralCam_v057/Install.bat</code></p></div><span class="version">v057</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_HyperspectralCam_V057_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
+<li class="app"><div class="app-name"><h2>FaradaIQ Spectra Forge</h2><p>Raman acquisition</p><p class="installer">Setup <code>Install.bat</code></p></div><span class="version">v139</span><div class="links"><a class="download" href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/FaradaIQ_Spectra_Forge_V139_Windows.zip">Download ZIP<span aria-hidden="true"> ↓</span></a></div></li>
+  </ul>
+  <section class="instructions" aria-labelledby="install-heading">
+    <h2 id="install-heading">Install on Windows</h2>
+    <p>Extract the complete ZIP to a short local path and run the setup BAT listed for the app. Configure the required instrument drivers and hardware settings for your PC.</p>
+    <p><a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/download/manuscript-beta/SHA256SUMS.txt">SHA-256 checksums</a> · <a href="https://github.com/venky-pnnl/HOLARIS_beta/releases/tag/manuscript-beta">GitHub release</a></p>
+  </section>
+</main>
+</body>
+</html>
